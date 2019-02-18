@@ -3,7 +3,7 @@ package Modules;
 import java.util.List;
 import java.util.Objects;
 
-public class Message extends AbstractModuleSingleton<Message> {
+public class Message extends AbstractModule<Message> {
 
     private int idMessage;
     private String messageText;
@@ -13,11 +13,6 @@ public class Message extends AbstractModuleSingleton<Message> {
     private String messageobject;
     private boolean isRead;
     private boolean isDeleted;
-
-    private static class MessageHolder{
-        private static Message message = new Message();
-    }
-    private Message(){}
 
     @Override
     public void myAbstractMethod() {

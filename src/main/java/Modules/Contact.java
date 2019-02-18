@@ -2,7 +2,7 @@ package Modules;
 
 import java.util.Objects;
 
-public class Contact extends AbstractModuleSingleton<Contact> {
+public class Contact extends AbstractModule<Contact> {
 
     private int idContact;
     private String contactFullName;
@@ -13,13 +13,6 @@ public class Contact extends AbstractModuleSingleton<Contact> {
     private String country;
     private String address;
     private String isAvailable;
-
-    private Contact() {
-    }
-
-    public Contact getInstance() {
-        return ContactHolder.contact;
-    }
 
     @Override
     public String toString() {// todo adapt to add in a json file

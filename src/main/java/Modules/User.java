@@ -3,7 +3,7 @@ package Modules;
 import java.util.List;
 import java.util.Objects;
 
-public class User extends AbstractModuleSingleton<User> {
+public class User extends AbstractModule<User> {
 
     private String matricule;
     private String userLogin;
