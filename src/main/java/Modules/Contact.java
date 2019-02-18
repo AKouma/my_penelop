@@ -14,6 +14,13 @@ public class Contact extends AbstractModuleSingleton<Contact> {
     private String address;
     private String isAvailable;
 
+    private Contact() {
+    }
+
+    public Contact getInstance() {
+        return ContactHolder.contact;
+    }
+
     @Override
     public String toString() {// todo adapt to add in a json file
         return "Contact{" +
@@ -28,6 +35,7 @@ public class Contact extends AbstractModuleSingleton<Contact> {
                 ", isAvailable='" + isAvailable + '\'' +
                 '}';
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,13 +51,6 @@ public class Contact extends AbstractModuleSingleton<Contact> {
 
     private static class ContactHolder {
         private static Contact contact = new Contact();
-    }
-
-    private Contact() {
-    }
-
-    public Contact getInstance() {
-        return ContactHolder.contact;
     }
 
     @Override
