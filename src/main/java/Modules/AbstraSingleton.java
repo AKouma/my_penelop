@@ -1,8 +1,8 @@
-package Singleton;
+package Modules;
 
 import java.util.List;
 
-abstract class AbstractSingleton<T> {
+abstract class AbstractModuleSingleton<T> {
 
     public List<T> myList;
 

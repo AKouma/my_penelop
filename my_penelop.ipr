@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="my_penelop" target="1.5" />
+      <module name="my_penelop" target="7" />
     </bytecodeTargetLevel>
   </component>
   <component name="Encoding" addBOMForNewFiles="with NO BOM" />
@@ -33,7 +33,10 @@
       <module fileurl="file://$PROJECT_DIR$/my_penelop.iml" filepath="$PROJECT_DIR$/my_penelop.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8.0_181" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
   </component>
 </project>
