@@ -142,4 +142,6 @@ public class Message extends AbstractModule<Message> {
     public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
+
+    public Message sendMessage(){return null;}//todo implement later
 }
