@@ -5,6 +5,8 @@ import java.util.Objects;
 
 public class User extends AbstractModule<User> {
 
+    //date format dd/MM/aaaa
+
     private String matricule;
     private String userLogin;
     private String userpassword;
@@ -17,9 +19,12 @@ public class User extends AbstractModule<User> {
     private int idGroup;
     private List<Contact> userContatcs;
     private List<Message> userMessages;
+    private String creationDate;
+    private String deleteDate;
+    private String updateDate;
 
     @Override
-    public String toString() {//todo adapt to make a json file
+    public String toString() {
         return "User{" +
                 "matricule='" + matricule + '\'' +
                 ", userLogin='" + userLogin + '\'' +
@@ -33,8 +38,13 @@ public class User extends AbstractModule<User> {
                 ", idGroup=" + idGroup +
                 ", userContatcs=" + userContatcs +
                 ", userMessages=" + userMessages +
+                ", creationDate='" + creationDate + '\'' +
+                ", deleteDate='" + deleteDate + '\'' +
+                ", updateDate='" + updateDate + '\'' +
                 '}';
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -156,5 +166,29 @@ public class User extends AbstractModule<User> {
 
     public void setUserMessages(List<Message> userMessages) {
         this.userMessages = userMessages;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDeleteDate() {
+        return deleteDate;
+    }
+
+    public void setDeleteDate(String deleteDate) {
+        this.deleteDate = deleteDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
     }
 }
