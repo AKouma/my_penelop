@@ -5,6 +5,8 @@ import java.util.Objects;
 
 public class Message extends AbstractModule<Message> {
 
+    //date format dd/MM/aaaa
+
     private int idMessage;
     private String messageText;
     private User messageSender;
@@ -13,6 +15,9 @@ public class Message extends AbstractModule<Message> {
     private String messageobject;
     private boolean isRead;
     private boolean isDeleted;
+    private String creationDate;
+    private String deleteDate;
+    private String updateDate;
 
     @Override
     public void myAbstractMethod() {
@@ -29,8 +34,13 @@ public class Message extends AbstractModule<Message> {
                 ", messageobject='" + messageobject + '\'' +
                 ", isRead=" + isRead +
                 ", isDeleted=" + isDeleted +
+                ", creationDate='" + creationDate + '\'' +
+                ", deleteDate='" + deleteDate + '\'' +
+                ", updateDate='" + updateDate + '\'' +
                 '}';
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -108,4 +118,30 @@ public class Message extends AbstractModule<Message> {
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
     }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDeleteDate() {
+        return deleteDate;
+    }
+
+    public void setDeleteDate(String deleteDate) {
+        this.deleteDate = deleteDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public Message sendMessage(){return null;}//todo implement later
 }

@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Contact extends AbstractModule<Contact> {
 
+    //date format dd/MM/aaaa
+
     private int idContact;
     private String contactFullName;
     private String contact1;
@@ -13,9 +15,13 @@ public class Contact extends AbstractModule<Contact> {
     private String country;
     private String address;
     private String isAvailable;
+    private String creationDate;
+    private String deleteDate;
+    private String updateDate;
+
 
     @Override
-    public String toString() {// todo adapt to add in a json file
+    public String toString() {
         return "Contact{" +
                 "idContact=" + idContact +
                 ", contactFullName='" + contactFullName + '\'' +
@@ -26,8 +32,13 @@ public class Contact extends AbstractModule<Contact> {
                 ", country='" + country + '\'' +
                 ", address='" + address + '\'' +
                 ", isAvailable='" + isAvailable + '\'' +
+                ", creationDate='" + creationDate + '\'' +
+                ", deleteDate='" + deleteDate + '\'' +
+                ", updateDate='" + updateDate + '\'' +
                 '}';
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -120,6 +131,30 @@ public class Contact extends AbstractModule<Contact> {
 
     public void setIsAvailable(String isAvailable) {
         this.isAvailable = isAvailable;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDeleteDate() {
+        return deleteDate;
+    }
+
+    public void setDeleteDate(String deleteDate) {
+        this.deleteDate = deleteDate;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
     }
 
 }
