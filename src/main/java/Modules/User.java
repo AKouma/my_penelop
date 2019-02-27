@@ -25,22 +25,22 @@ public class User extends AbstractModule<User> {
 
     @Override
     public String toString() {
-        return "User{" +
-                "matricule='" + matricule + '\'' +
-                ", userLogin='" + userLogin + '\'' +
-                ", userpassword='" + userpassword + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userFirstname='" + userFirstname + '\'' +
-                ", userBirth='" + userBirth + '\'' +
-                ", userProfil='" + userProfil + '\'' +
-                ", userMail='" + userMail + '\'' +
-                ", isDeleted=" + isDeleted +
-                ", idGroup=" + idGroup +
-                ", userContatcs=" + userContatcs +
-                ", userMessages=" + userMessages +
-                ", creationDate='" + creationDate + '\'' +
-                ", deleteDate='" + deleteDate + '\'' +
-                ", updateDate='" + updateDate + '\'' +
+        return "{" +
+                "\"matricule\":" + matricule +'\"' +
+                ", \"userLogin\":" + userLogin + '\"' +
+                ", \"userpassword\":" + userpassword + '\"' +
+                ", \"userName\":" + userName + '\"' +
+                ", \"userFirstname\":" + userFirstname + '\"' +
+                ", \"userBirth\":" + userBirth + '\"' +
+                ", \"userProfil\":" + userProfil + '\"' +
+                ", \"userMail\":" + userMail + '\"' +
+                ", \"isDeleted\":" + isDeleted +
+                ", \"idGroup\":" + idGroup +
+                ", \"userContatcs\":" + userContatcs +
+                ", \"userMessages\":" + userMessages +
+                ", \"creationDate\":" + creationDate + '\"' +
+                ", \"deleteDate\":" + deleteDate + '\"' +
+                ", \"updateDate\":" + updateDate + '\"' +
                 '}';
     }
 
@@ -64,7 +64,7 @@ public class User extends AbstractModule<User> {
 
     private User(){}
 
-    public User getInstance(){
+    public static User getInstance(){
         return UserHolder.user;
     }
 
