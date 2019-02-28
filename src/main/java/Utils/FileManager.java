@@ -104,7 +104,7 @@ public class FileManager {
         } else if (module instanceof Message) {
             return null;
         } else if (module instanceof Groupe) {
-            return null;
+            return createGroupeObject(jsonObjectPersonn);
         } else if (module instanceof Contact) {
             return null;
         } else {
@@ -130,6 +130,20 @@ public class FileManager {
         user.setUserContatcs((List<Contact>) jsonObjectUser.get(USER_CONTATCS_FIELD));
         user.setUserMessages((List<Message>) jsonObjectUser.get(USER_MESSAGES_FIELDS));
         return user;
+    }
+
+    public static Groupe createGroupeObject(JSONObject jsonObjectGroup){
+        Groupe groupe = new Groupe();
+        groupe.setIdGroup((long) jsonObjectGroup.get(GROUPE_ID_FIELD));
+        groupe.setUpdateDate(getValueFromJsonObject(jsonObjectGroup, GROUPE_UPDATE_DATE_FIELD));
+        groupe.setPrivilege(getValueFromJsonObject(jsonObjectGroup, GROUPE_PRIVILEVE_FIELD));
+        groupe.setGroupName(getValueFromJsonObject(jsonObjectGroup, GROUPE_NAME_FIELD));
+        groupe.setGroupChief(getValueFromJsonObject(jsonObjectGroup, GROUPE_CHIEF_FIELD));
+        groupe.setDeleteDate(getValueFromJsonObject(jsonObjectGroup, GROUPE_DELETED_DATE_FIELD));
+        groupe.setCreationDate(getValueFromJsonObject(jsonObjectGroup, GROUPE_CREATION_DATE_FIELD));
+        groupe.setHasChief((Boolean) jsonObjectGroup.get(GROUPE_HAS_CHIEF_FIELD));
+        groupe.setDeleted((Boolean) jsonObjectGroup.get(GROUPE_IS_DELETED_FIELD));
+        return groupe;
     }
 
     private static String getValueFromJsonObject(JSONObject jsonObjectPerson, String field) {

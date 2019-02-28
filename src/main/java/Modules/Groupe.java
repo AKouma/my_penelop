@@ -52,7 +52,7 @@ public class Groupe extends AbstractModule<Groupe> {
         return idGroup;
     }
 
-    public void setIdGroup(int idGroup) {
+    public void setIdGroup(long idGroup) {
         this.idGroup = idGroup;
     }
 

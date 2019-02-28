@@ -1,5 +1,6 @@
 package Dao;
 
+import Modules.Contact;
 import Modules.User;
 
 import javax.swing.text.html.HTMLDocument;
@@ -28,6 +29,7 @@ public class UserDao implements Idao<User> {
                 isAlreadyExist = current.equals(user);
             }
             if (!isAlreadyExist) {
+                updateContac(user);
                 users.add(user);
                 userList.addAll(users);
                 InsertIntoJson(userList, userFilePathName);
@@ -69,6 +71,7 @@ public class UserDao implements Idao<User> {
             }
             if (isFoundAndUpdate) {
                 users.add(user);
+                updateContac(user);
                 userList.addAll(users);
                 InsertIntoJson(userList, userFilePathName);
             } else {
@@ -113,5 +116,14 @@ public class UserDao implements Idao<User> {
             }
         }
         return null;
+    }
+
+    private void updateContac(User user){
+        ContactDao contactDao = new ContactDao();
+        if(!user.getUserContatcs().isEmpty()){
+            for (Contact contact : user.getUserContatcs()) {
+                contactDao.create(contact);
+            }
+        }
     }
 }

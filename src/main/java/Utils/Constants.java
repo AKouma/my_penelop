@@ -20,6 +20,18 @@ public class Constants {
     public static final String USER_UPDATE_DATE_FIELD = "updateDate";
 
     //groupe field
+    public static final String GROUPE_ID_FIELD = "idGroup";
+    public static final String GROUPE_NAME_FIELD = "groupName";
+    public static final String GROUPE_CHIEF_FIELD = "groupChief";
+    public static final String GROUPE_PRIVILEVE_FIELD = "privilege";
+    public static final String GROUPE_IS_DELETED_FIELD = "isDeleted";
+    public static final String GROUPE_HAS_CHIEF_FIELD = "hasChief";
+    public static final String GROUPE_CREATION_DATE_FIELD = "creationDate";
+    public static final String GROUPE_DELETED_DATE_FIELD = "deleteDate";
+    public static final String GROUPE_UPDATE_DATE_FIELD = "updateDate";
+
+
+
     //contact field
     //message field
     //file path

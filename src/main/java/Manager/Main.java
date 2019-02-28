@@ -1,6 +1,8 @@
 package Manager;
 
+import Dao.GroupeDao;
 import Dao.UserDao;
+import Modules.Groupe;
 import Modules.Message;
 import Modules.User;
 import Utils.DateUtils;
@@ -8,6 +10,8 @@ import Utils.DateUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import static Utils.DateUtils.getDate;
 
 public class Main {
 
@@ -29,11 +33,26 @@ public class Main {
         userToCreate.setIdGroup(3);
         userToCreate.setDeleteDate(null);
         userToCreate.setDeleted(false);
-        userToCreate.setCreationDate(DateUtils.getDate(new Date()));
+        userToCreate.setCreationDate(getDate(new Date()));
         userToCreate.setUserMessages(null);
 
-        User user = userDao.findById("");
-        System.out.println(user);
+        GroupeDao groupeDao = new GroupeDao();
+        Groupe groupe = new Groupe();
+        groupe.setIdGroup(1);
+        groupe.setUpdateDate(null);
+        groupe.setPrivilege("admin");
+        groupe.setHasChief(false);
+        groupe.setGroupName("administrateurs");
+        groupe.setGroupChief(null);
+        groupe.setDeleteDate(null);
+        groupe.setDeleted(false);
+        groupe.setCreationDate(getDate(new Date()));
+
+        Groupe groupe1 = groupeDao.create(groupe);
+        System.out.println(groupe1);
+
+        //User user = userDao.findById("");
+       // System.out.println(user);
         //FileManager.InsertIntoJson(groupes, userFilePathName);
         //List<User> users = userDao.findAll();
         /*for (Object user :  users) {
