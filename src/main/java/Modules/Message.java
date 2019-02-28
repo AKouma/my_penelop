@@ -7,7 +7,7 @@ public class Message extends AbstractModule<Message> {
 
     //date format dd/MM/aaaa
 
-    private int idMessage;
+    private long idMessage;
     private String messageText;
     private User messageSender;
     private List<User> messageSentTo;
@@ -54,11 +54,11 @@ public class Message extends AbstractModule<Message> {
         return Objects.hash(idMessage);
     }
 
-    public int getIdMessage() {
+    public long getIdMessage() {
         return idMessage;
     }
 
-    public void setIdMessage(int idMessage) {
+    public void setIdMessage(long idMessage) {
         this.idMessage = idMessage;
     }
 
@@ -144,5 +144,5 @@ public class Message extends AbstractModule<Message> {
 
     public Message sendMessage() {
         return null;
-    }//todo implement later
+    }
 }

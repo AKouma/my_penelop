@@ -98,13 +98,13 @@ public class FileManager {
         }
     }
 
-    public static Object getFromJsonObject(JSONObject jsonObjectPersonn, Object module) {
+    public static Object getFromJsonObject(JSONObject jsonObject, Object module) {
         if (module instanceof User) {
-            return createUserObject(jsonObjectPersonn);
+            return createUserObject(jsonObject);
         } else if (module instanceof Message) {
-            return null;
+            return createMessageObject(jsonObject);
         } else if (module instanceof Groupe) {
-            return createGroupeObject(jsonObjectPersonn);
+            return createGroupeObject(jsonObject);
         } else if (module instanceof Contact) {
             return null;
         } else {
@@ -144,6 +144,22 @@ public class FileManager {
         groupe.setHasChief((Boolean) jsonObjectGroup.get(GROUPE_HAS_CHIEF_FIELD));
         groupe.setDeleted((Boolean) jsonObjectGroup.get(GROUPE_IS_DELETED_FIELD));
         return groupe;
+    }
+
+    public static Message createMessageObject(JSONObject jsonObjectMessage){
+        Message message = new Message();
+        message.setIdMessage((long) jsonObjectMessage.get(MESSAGE_ID_FIELD));
+        message.setMessageText(getValueFromJsonObject(jsonObjectMessage, MESSAGE_MSG_TEXT_FIELD));
+        message.setRead((Boolean) jsonObjectMessage.get(MESSAGE_MSG_ISREAD_FIELD));
+        message.setMessageSentTo((List<User>) jsonObjectMessage.get(MESSAGE_MSG_SENDERTO_FIELD));
+        message.setMessageSender((User) jsonObjectMessage.get(MESSAGE_MSG_SENDER_FIELD));
+        message.setMessageobject(getValueFromJsonObject(jsonObjectMessage, MESSAGE_MSG_OBJECT_FIELD));
+        message.setMessageDate(getValueFromJsonObject(jsonObjectMessage, MESSAGE_MSG_DATE_FIELD));
+        message.setDeleteDate(getValueFromJsonObject(jsonObjectMessage, MESSAGE_DELETE_DATE_FIELD));
+        message.setDeleted((Boolean) jsonObjectMessage.get(MESSAGE_IS_DELETED_FIELD));
+        message.setCreationDate(getValueFromJsonObject(jsonObjectMessage, MESSAGE_CREATION_DATE_FIELD));
+        message.setUpdateDate(getValueFromJsonObject(jsonObjectMessage, MESSAGE_UPDATE_DATE_FIELD));
+        return message;
     }
 
     private static String getValueFromJsonObject(JSONObject jsonObjectPerson, String field) {

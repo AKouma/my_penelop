@@ -1,6 +1,7 @@
 package Manager;
 
 import Dao.GroupeDao;
+import Dao.MessageDao;
 import Dao.UserDao;
 import Modules.Groupe;
 import Modules.Message;
@@ -18,6 +19,7 @@ public class Main {
     public static void main(String[] args) {
         List<Object> groupes = new ArrayList<>();
         List<Message> messages = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         UserDao userDao = new UserDao();
         User userToCreate = new User();
         userToCreate.setMatricule("uezgfygure");
@@ -48,11 +50,30 @@ public class Main {
         groupe.setDeleted(false);
         groupe.setCreationDate(getDate(new Date()));
 
+
+        Message message = new Message();
+        users.add(userToCreate);
+        message.setIdMessage(1);
+        message.setMessageText("ceci est un test");
+        message.setRead(false);
+        message.setMessageSentTo(users);
+        message.setMessageSender(userToCreate);
+        message.setMessageobject("test");
+        message.setMessageDate(getDate(new Date()));
+        message.setDeleteDate(null);
+        message.setDeleted(false);
+        message.setCreationDate(getDate(new Date()));
+        message.setUpdateDate(null);
+
         Groupe groupe1 = groupeDao.findById(2);
-        System.out.println(groupe1);
+        //System.out.println(groupe1);
 
         User user = userDao.create(userToCreate);
-        System.out.println(user);
+        //System.out.println(user);
+
+        MessageDao messageDao = new MessageDao();
+        Message message1 = messageDao.create(message);
+        //System.out.println(message1);
         //FileManager.InsertIntoJson(groupes, userFilePathName);
         //List<User> users = userDao.findAll();
         /*for (Object user :  users) {
