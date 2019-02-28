@@ -33,7 +33,7 @@ public class GroupeDao implements Idao<Groupe> {
     }
 
     @Override
-    public List<Groupe> findById(Object id) {
+    public Groupe findById(Object id) {
         return null;
     }
 }

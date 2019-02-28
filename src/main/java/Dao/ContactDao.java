@@ -33,7 +33,7 @@ public class ContactDao implements Idao<Contact> {
     }
 
     @Override
-    public List<Contact> findById(Object id) {
+    public Contact findById(Object id) {
         return null;
     }
 }

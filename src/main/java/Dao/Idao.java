@@ -14,5 +14,5 @@ public interface Idao<T> {
 
     public List<T> findByCriteria(String criteria, Object value);
 
-    public List<T> findById(Object id);
+    public T findById(Object id);
 }

@@ -32,7 +32,7 @@ public class Main {
         userToCreate.setCreationDate(DateUtils.getDate(new Date()));
         userToCreate.setUserMessages(null);
 
-        User user = userDao.update(userToCreate);
+        User user = userDao.findById("");
         System.out.println(user);
         //FileManager.InsertIntoJson(groupes, userFilePathName);
         //List<User> users = userDao.findAll();

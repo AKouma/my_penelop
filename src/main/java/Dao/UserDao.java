@@ -14,23 +14,23 @@ import static Utils.FileManager.getFromJson;
 public class UserDao implements Idao<User> {
 
     private List<User> users;
-   // private User user = User.getInstance();
+    // private User user = User.getInstance();
 
     @Override
     public User create(User user) {
-        if(user != null){
+        if (user != null) {
             List<Object> userList = new ArrayList<>();
             users = findAll();
             boolean isAlreadyExist = false;
             Iterator it = users.iterator();
-            while (it.hasNext() && !isAlreadyExist){
+            while (it.hasNext() && !isAlreadyExist) {
                 User current = (User) it.next();
                 isAlreadyExist = current.equals(user);
             }
-            if(!isAlreadyExist){
+            if (!isAlreadyExist) {
                 users.add(user);
                 userList.addAll(users);
-                InsertIntoJson(userList,userFilePathName);
+                InsertIntoJson(userList, userFilePathName);
             }
         }
         return user;
@@ -38,40 +38,40 @@ public class UserDao implements Idao<User> {
 
     @Override
     public boolean delete(User user) {
-        if(user != null){
+        if (user != null) {
             user.setDeleted(true);
             List<Object> userList = new ArrayList<>();
             users = findAll();
             //users.add(user);
             users.remove(user); //if we decide to delete definitively
             userList.addAll(users);
-            InsertIntoJson(userList,userFilePathName);
+            InsertIntoJson(userList, userFilePathName);
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
     @Override
     public User update(User user) {
-        if(user != null){
+        if (user != null) {
             List<Object> userList = new ArrayList<>();
             users = findAll();
             Iterator it = users.iterator();
             boolean isFoundAndUpdate = false;
-            while (it.hasNext() && !isFoundAndUpdate){
+            while (it.hasNext() && !isFoundAndUpdate) {
                 User current = (User) it.next();
-                    isFoundAndUpdate = current.equals(user);
-                    if(isFoundAndUpdate){
-                        current = user;
-                        it.remove();
-                    }
+                isFoundAndUpdate = current.equals(user);
+                if (isFoundAndUpdate) {
+                    current = user;
+                    it.remove();
+                }
             }
-            if(isFoundAndUpdate){
+            if (isFoundAndUpdate) {
                 users.add(user);
                 userList.addAll(users);
-                InsertIntoJson(userList,userFilePathName);
-            }else {
+                InsertIntoJson(userList, userFilePathName);
+            } else {
                 user = null;
             }
         }
@@ -83,9 +83,9 @@ public class UserDao implements Idao<User> {
         users = new ArrayList<>();
         List<Object> objects = getFromJson(userFilePathName, new User());
         Iterator it = objects.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             Object ob = it.next();
-            if(ob instanceof User){
+            if (ob instanceof User) {
                 users.add((User) ob);
             }
         }
@@ -98,7 +98,20 @@ public class UserDao implements Idao<User> {
     }
 
     @Override
-    public List<User> findById(Object id) {
+    public User findById(Object id) {
+        if (id instanceof String) {
+            List<Object> userList = new ArrayList<>();
+            users = findAll();
+            Iterator it = users.iterator();
+            boolean isFoundAndUpdate = false;
+            while (it.hasNext() && !isFoundAndUpdate) {
+                User current = (User) it.next();
+                isFoundAndUpdate = id.equals(current.getMatricule());
+                if (isFoundAndUpdate) {
+                    return current;
+                }
+            }
+        }
         return null;
     }
 }

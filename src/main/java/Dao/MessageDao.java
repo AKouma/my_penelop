@@ -33,7 +33,7 @@ public class MessageDao implements Idao<Message> {
     }
 
     @Override
-    public List<Message> findById(Object id) {
+    public Message findById(Object id) {
         return null;
     }
 }
