@@ -7,7 +7,7 @@ import java.util.List;
 public class MessageDao implements Idao<Message> {
 
     @Override
-    public Message create() {
+    public Message create(Message message) {
         return null;
     }
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Idao<T> {
 
-    public T create();
+    public T create(T t);
 
     public boolean delete();
 

@@ -6,8 +6,9 @@ import java.util.List;
 
 public class GroupeDao implements Idao<Groupe> {
 
+
     @Override
-    public Groupe create() {
+    public Groupe create(Groupe groupe) {
         return null;
     }
 

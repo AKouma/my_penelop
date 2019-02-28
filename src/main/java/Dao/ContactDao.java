@@ -6,8 +6,9 @@ import java.util.List;
 
 public class ContactDao implements Idao<Contact> {
 
+
     @Override
-    public Contact create() {
+    public Contact create(Contact contact) {
         return null;
     }
 

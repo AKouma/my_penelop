@@ -81,7 +81,7 @@ public class FileManager {
         }
     }
 
-     enum objectType {
+    enum objectType {
         USERS("users"),
         CONTACTS("contacts"),
         GROUPES("groupes"),
