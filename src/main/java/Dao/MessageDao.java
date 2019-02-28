@@ -6,8 +6,6 @@ import java.util.List;
 
 public class MessageDao implements Idao<Message> {
 
-    private static final String fileName = "Message.json";
-
     @Override
     public Message create() {
         return null;

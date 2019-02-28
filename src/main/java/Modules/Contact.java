@@ -14,7 +14,7 @@ public class Contact extends AbstractModule<Contact> {
     private String department;
     private String country;
     private String address;
-    private String isAvailable;
+    private boolean isAvailable;
     private String creationDate;
     private String deleteDate;
     private String updateDate;
@@ -22,22 +22,21 @@ public class Contact extends AbstractModule<Contact> {
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "idContact=" + idContact +
-                ", contactFullName='" + contactFullName + '\'' +
-                ", contact1='" + contact1 + '\'' +
-                ", contact2='" + contact2 + '\'' +
-                ", cityOrTown='" + cityOrTown + '\'' +
-                ", department='" + department + '\'' +
-                ", country='" + country + '\'' +
-                ", address='" + address + '\'' +
-                ", isAvailable='" + isAvailable + '\'' +
-                ", creationDate='" + creationDate + '\'' +
-                ", deleteDate='" + deleteDate + '\'' +
-                ", updateDate='" + updateDate + '\'' +
+        return "{" +
+                "\"idContact\":" + idContact +
+                ", \"contactFullName\":" + "\"" + contactFullName + "\"" +
+                ", \"contact1\":" + "\"" + contact1 + "\"" +
+                ", \"contact2\":" + "\"" + contact2 + "\"" +
+                ", \"cityOrTown\":" + "\"" + cityOrTown + "\"" +
+                ", \"department\":" + "\"" + department + "\"" +
+                ", \"country\":" + "\"" + country + "\"" +
+                ", \"address\":" + "\"" + address + "\"" +
+                ", \"isAvailable\":" + isAvailable +
+                ", \"creationDate\":" + "\"" + creationDate + "\"" +
+                ", \"deleteDate\":" + "\"" + deleteDate + "\"" +
+                ", \"updateDate\":" + "\"" + updateDate + "\"" +
                 '}';
     }
-
 
 
     @Override
@@ -125,11 +124,11 @@ public class Contact extends AbstractModule<Contact> {
         this.address = address;
     }
 
-    public String getIsAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
 
-    public void setIsAvailable(String isAvailable) {
+    public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
 

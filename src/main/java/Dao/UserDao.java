@@ -6,8 +6,6 @@ import java.util.List;
 
 public class UserDao implements Idao<User> {
 
-    private static final String fileName = "User.json";
-
     @Override
     public User create() {
         return null;

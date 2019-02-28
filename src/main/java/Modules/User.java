@@ -16,7 +16,7 @@ public class User extends AbstractModule<User> {
     private String userProfil;
     private String userMail;
     private boolean isDeleted;
-    private int idGroup;
+    private long idGroup;
     private List<Contact> userContatcs;
     private List<Message> userMessages;
     private String creationDate;
@@ -26,24 +26,23 @@ public class User extends AbstractModule<User> {
     @Override
     public String toString() {
         return "{" +
-                "\"matricule\":" + matricule +'\"' +
-                ", \"userLogin\":" + userLogin + '\"' +
-                ", \"userpassword\":" + userpassword + '\"' +
-                ", \"userName\":" + userName + '\"' +
-                ", \"userFirstname\":" + userFirstname + '\"' +
-                ", \"userBirth\":" + userBirth + '\"' +
-                ", \"userProfil\":" + userProfil + '\"' +
-                ", \"userMail\":" + userMail + '\"' +
+                "\"matricule\":" + "\"" + matricule + "\"" +
+                ", \"userLogin\":" + "\"" +userLogin + "\"" +
+                ", \"userpassword\":" + "\""+ userpassword + "\"" +
+                ", \"userName\":" +"\""+ userName + "\"" +
+                ", \"userFirstname\":" + "\""+ userFirstname + "\"" +
+                ", \"userBirth\":" +"\""+ userBirth + "\"" +
+                ", \"userProfil\":" +"\""+ userProfil +"\"" +
+                ", \"userMail\":" +"\""+ userMail + "\"" +
                 ", \"isDeleted\":" + isDeleted +
                 ", \"idGroup\":" + idGroup +
                 ", \"userContatcs\":" + userContatcs +
                 ", \"userMessages\":" + userMessages +
-                ", \"creationDate\":" + creationDate + '\"' +
-                ", \"deleteDate\":" + deleteDate + '\"' +
-                ", \"updateDate\":" + updateDate + '\"' +
+                ", \"creationDate\":" +"\""+ creationDate + "\"" +
+                ", \"deleteDate\":" +"\""+ deleteDate + "\"" +
+                ", \"updateDate\":" +"\""+ updateDate + "\"" +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -58,13 +57,14 @@ public class User extends AbstractModule<User> {
         return Objects.hash(matricule);
     }
 
-    private static class UserHolder{
+    private static class UserHolder {
         private static User user = new User();
     }
 
-    private User(){}
+    private User() {
+    }
 
-    public static User getInstance(){
+    public static User getInstance() {
         return UserHolder.user;
     }
 
@@ -144,11 +144,11 @@ public class User extends AbstractModule<User> {
         isDeleted = deleted;
     }
 
-    public int getIdGroup() {
+    public long getIdGroup() {
         return idGroup;
     }
 
-    public void setIdGroup(int idGroup) {
+    public void setIdGroup(long idGroup) {
         this.idGroup = idGroup;
     }
 

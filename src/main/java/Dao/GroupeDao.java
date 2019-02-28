@@ -6,8 +6,6 @@ import java.util.List;
 
 public class GroupeDao implements Idao<Groupe> {
 
-    private static final String fileName = "Groupe.json";
-
     @Override
     public Groupe create() {
         return null;

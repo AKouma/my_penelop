@@ -6,9 +6,6 @@ import java.util.List;
 
 public class ContactDao implements Idao<Contact> {
 
-
-    private static final String fileName = "Contact.json";
-
     @Override
     public Contact create() {
         return null;

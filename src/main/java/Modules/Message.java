@@ -25,21 +25,20 @@ public class Message extends AbstractModule<Message> {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "idMessage=" + idMessage +
-                ", messageText='" + messageText + '\'' +
-                ", messageSender=" + messageSender +
-                ", messageSentTo=" + messageSentTo +
-                ", messageDate='" + messageDate + '\'' +
-                ", messageobject='" + messageobject + '\'' +
-                ", isRead=" + isRead +
-                ", isDeleted=" + isDeleted +
-                ", creationDate='" + creationDate + '\'' +
-                ", deleteDate='" + deleteDate + '\'' +
-                ", updateDate='" + updateDate + '\'' +
+        return "{" +
+                "\"idMessage\":" + idMessage +
+                ", \"messageText\":" + "\"" + messageText + "\"" +
+                ", \"messageSender\":" + messageSender +
+                ", \"messageSentTo\":" + messageSentTo +
+                ", \"messageDate\":" + "\"" + messageDate + "\"" +
+                ", \"messageobject\":" + "\"" + messageobject + "\"" +
+                ", \"isRead\":" + isRead +
+                ", \"isDeleted\":" + isDeleted +
+                ", \"creationDate\":" + "\"" + creationDate + "\"" +
+                ", \"deleteDate\":" + "\"" + deleteDate + "\"" +
+                ", \"updateDate\":" + "\"" + updateDate + "\"" +
                 '}';
     }
-
 
 
     @Override
@@ -143,5 +142,7 @@ public class Message extends AbstractModule<Message> {
         this.updateDate = updateDate;
     }
 
-    public Message sendMessage(){return null;}//todo implement later
+    public Message sendMessage() {
+        return null;
+    }//todo implement later
 }

@@ -48,9 +48,9 @@ public class FileManager {
         if (objects.isEmpty() || jsonType == null)
             return;
 
-        myWriter.write("{" + "\"" + jsonType + "\":[");
         try {
             myWriter = new PrintWriter(new FileWriter(filePath, false));
+            myWriter.write("{" + "\"" + jsonType + "\":[");
             Iterator it = objects.iterator();
             while (it.hasNext()) {
                 Object current = it.next();
@@ -81,7 +81,7 @@ public class FileManager {
         }
     }
 
-    enum objectType {
+     enum objectType {
         USERS("users"),
         CONTACTS("contacts"),
         GROUPES("groupes"),
@@ -122,7 +122,7 @@ public class FileManager {
         user.setUserpassword(getValueFromJsonObject(jsonObjectUser, USER_PASSWORD_FIELD));
         user.setUserMail(getValueFromJsonObject(jsonObjectUser, USER_MAIL_FIELD));
         user.setUserProfil(getValueFromJsonObject(jsonObjectUser, USER_PROFIL_FIELD));
-        user.setIdGroup((Integer) jsonObjectUser.get(USER_GROUP_ID_FIELD));
+        user.setIdGroup((Long) jsonObjectUser.get(USER_GROUP_ID_FIELD));
         user.setDeleted((Boolean) jsonObjectUser.get(USER_DELETED_FIELD));
         user.setCreationDate(getValueFromJsonObject(jsonObjectUser, USER_CREATION_DATE_FIELD));
         user.setDeleteDate(getValueFromJsonObject(jsonObjectUser, USER_DELETED_DATE_FIELD));

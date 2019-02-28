@@ -2,6 +2,7 @@ package Utils;
 
 public class Constants {
 
+    //user fields
     public static final String USER_MATRICULE_FIELD = "matricule";
     public static final String USER_LOGIN_FIELD = "userLogin";
     public static final String USER_PASSWORD_FIELD = "userpassword";
@@ -17,6 +18,15 @@ public class Constants {
     public static final String USER_CREATION_DATE_FIELD = "creationDate";
     public static final String USER_DELETED_DATE_FIELD = "deleteDate";
     public static final String USER_UPDATE_DATE_FIELD = "updateDate";
+
+    //groupe field
+    //contact field
+    //message field
+    //file path
+    public static final String userFilePathName = "users.json";
+    public static final String messageFilePathName = "messages.json";
+    public static final String groupeFilePathName = "groupes.json";
+    public static final String contactFilePathName = "contacts.json";
 
 
 

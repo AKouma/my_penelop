@@ -6,7 +6,7 @@ public class Groupe extends AbstractModule<Groupe> {
 
     //date format dd/MM/aaaa
 
-    private int idGroup;
+    private long idGroup;
     private String groupName;
     private String groupChief;
     private String privilege;
@@ -19,18 +19,19 @@ public class Groupe extends AbstractModule<Groupe> {
     @Override
     public void myAbstractMethod() {
     }
+
     @Override
     public String toString() {
-        return "Groupe{" +
-                "idGroup=" + idGroup +
-                ", groupName='" + groupName + '\'' +
-                ", groupChief='" + groupChief + '\'' +
-                ", privilege='" + privilege + '\'' +
-                ", isDeleted=" + isDeleted +
-                ", hasChief=" + hasChief +
-                ", creationDate='" + creationDate + '\'' +
-                ", deleteDate='" + deleteDate + '\'' +
-                ", updateDate='" + updateDate + '\'' +
+        return "{" +
+                "\"idGroup\":" + idGroup +
+                ", \"groupName\":" + "\"" + groupName + "\"" +
+                ", \"groupChief\":" + "\"" + groupChief + "\"" +
+                ", \"privilege\":" + "\"" + privilege + "\"" +
+                ", \"isDeleted\":" + isDeleted +
+                ", \"hasChief\":" + hasChief +
+                ", \"creationDate\":" + "\"" + creationDate + "\"" +
+                ", \"deleteDate\":" + "\"" + deleteDate + "\"" +
+                ", \"updateDate\":" + "\"" + updateDate + "\"" +
                 '}';
     }
 
@@ -47,7 +48,7 @@ public class Groupe extends AbstractModule<Groupe> {
         return Objects.hash(idGroup);
     }
 
-    public int getIdGroup() {
+    public long getIdGroup() {
         return idGroup;
     }
 
