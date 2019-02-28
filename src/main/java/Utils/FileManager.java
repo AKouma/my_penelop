@@ -113,7 +113,7 @@ public class FileManager {
     }
 
     public static User createUserObject(JSONObject jsonObjectUser) {
-        User user = User.getInstance();
+        User user = new User();
         user.setMatricule(getValueFromJsonObject(jsonObjectUser, USER_MATRICULE_FIELD));
         user.setUserFirstname(getValueFromJsonObject(jsonObjectUser, USER_FIRST_NAME_FIELD));
         user.setUserName(getValueFromJsonObject(jsonObjectUser, USER_NAME_FIELD));

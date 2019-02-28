@@ -15,14 +15,14 @@ public class Main {
         List<Object> groupes = new ArrayList<>();
         List<Message> messages = new ArrayList<>();
         UserDao userDao = new UserDao();
-        User userToCreate = User.getInstance();
-        userToCreate.setMatricule("fqshfgvqgufgf");
+        User userToCreate = new User();
+        userToCreate.setMatricule("fqshfgvaaaatyufgf");
         userToCreate.setUserProfil("developpeur");
-        userToCreate.setUserpassword("password");
-        userToCreate.setUserName("KOUMARE");
+        userToCreate.setUserpassword("passworddexter1111");
+        userToCreate.setUserName("BENONI");
         userToCreate.setUserMail("elbacar08@gmail.com");
-        userToCreate.setUserLogin("AKouma");
-        userToCreate.setUserFirstname("Aboubacar");
+        userToCreate.setUserLogin("DEX");
+        userToCreate.setUserFirstname("DEXTER");
         userToCreate.setUserContatcs(null);
         userToCreate.setUserBirth("16/02/1993");
         userToCreate.setUpdateDate(null);
@@ -32,8 +32,8 @@ public class Main {
         userToCreate.setCreationDate(DateUtils.getDate(new Date()));
         userToCreate.setUserMessages(null);
 
-        userDao.create(userToCreate);
-        //System.out.println(userDao.create(userToCreate));
+        User user = userDao.update(userToCreate);
+        System.out.println(user);
         //FileManager.InsertIntoJson(groupes, userFilePathName);
         //List<User> users = userDao.findAll();
         /*for (Object user :  users) {

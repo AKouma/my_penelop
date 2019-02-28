@@ -1,6 +1,7 @@
 package Dao;
 
 import Modules.Message;
+import Modules.User;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class MessageDao implements Idao<Message> {
     }
 
     @Override
-    public boolean delete() {
+    public boolean delete(Message message) {
         return false;
     }
 

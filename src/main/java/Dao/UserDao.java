@@ -2,6 +2,7 @@ package Dao;
 
 import Modules.User;
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,32 +14,74 @@ import static Utils.FileManager.getFromJson;
 public class UserDao implements Idao<User> {
 
     private List<User> users;
-    private User user = User.getInstance();
+   // private User user = User.getInstance();
 
     @Override
     public User create(User user) {
-        List<Object> userList = new ArrayList<>();
-        users = findAll();
-        users.add(user);
-        userList.addAll(users);
-        InsertIntoJson(userList,userFilePathName);
+        if(user != null){
+            List<Object> userList = new ArrayList<>();
+            users = findAll();
+            boolean isAlreadyExist = false;
+            Iterator it = users.iterator();
+            while (it.hasNext() && !isAlreadyExist){
+                User current = (User) it.next();
+                isAlreadyExist = current.equals(user);
+            }
+            if(!isAlreadyExist){
+                users.add(user);
+                userList.addAll(users);
+                InsertIntoJson(userList,userFilePathName);
+            }
+        }
         return user;
     }
 
     @Override
-    public boolean delete() {
-        return false;
+    public boolean delete(User user) {
+        if(user != null){
+            user.setDeleted(true);
+            List<Object> userList = new ArrayList<>();
+            users = findAll();
+            //users.add(user);
+            users.remove(user); //if we decide to delete definitively
+            userList.addAll(users);
+            InsertIntoJson(userList,userFilePathName);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public User update(User user) {
-        return null;
+        if(user != null){
+            List<Object> userList = new ArrayList<>();
+            users = findAll();
+            Iterator it = users.iterator();
+            boolean isFoundAndUpdate = false;
+            while (it.hasNext() && !isFoundAndUpdate){
+                User current = (User) it.next();
+                    isFoundAndUpdate = current.equals(user);
+                    if(isFoundAndUpdate){
+                        current = user;
+                        it.remove();
+                    }
+            }
+            if(isFoundAndUpdate){
+                users.add(user);
+                userList.addAll(users);
+                InsertIntoJson(userList,userFilePathName);
+            }else {
+                user = null;
+            }
+        }
+        return user;
     }
 
     @Override
     public List<User> findAll() {
         users = new ArrayList<>();
-        List<Object> objects = getFromJson(userFilePathName, user);
+        List<Object> objects = getFromJson(userFilePathName, new User());
         Iterator it = objects.iterator();
         while (it.hasNext()){
             Object ob = it.next();

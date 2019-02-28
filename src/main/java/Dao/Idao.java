@@ -6,7 +6,7 @@ public interface Idao<T> {
 
     public T create(T t);
 
-    public boolean delete();
+    public boolean delete(T t);
 
     public T update(T t);
 

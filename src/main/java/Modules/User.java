@@ -57,16 +57,16 @@ public class User extends AbstractModule<User> {
         return Objects.hash(matricule);
     }
 
-    private static class UserHolder {
+    /*private static class UserHolder {
         private static User user = new User();
+    }*/
+
+    public User() {
     }
 
-    private User() {
-    }
-
-    public static User getInstance() {
+  /*  public static User getInstance() {
         return UserHolder.user;
-    }
+    }*/
 
     @Override
     public void myAbstractMethod() {

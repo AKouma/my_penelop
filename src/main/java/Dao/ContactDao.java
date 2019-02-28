@@ -13,7 +13,7 @@ public class ContactDao implements Idao<Contact> {
     }
 
     @Override
-    public boolean delete() {
+    public boolean delete(Contact contact) {
         return false;
     }
 

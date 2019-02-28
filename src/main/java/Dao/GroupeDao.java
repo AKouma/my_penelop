@@ -13,7 +13,7 @@ public class GroupeDao implements Idao<Groupe> {
     }
 
     @Override
-    public boolean delete() {
+    public boolean delete(Groupe groupe) {
         return false;
     }
 
