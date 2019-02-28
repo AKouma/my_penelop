@@ -1,3 +1,2 @@
-{"groupes":[{"idGroup":2, "groupName":"developpeurs", "groupChief":"null", "privilege":"dev", "isDeleted":false, "hasChief":false, "creationDate":"28/02/PM", "deleteDate":"null", "updateDate":"null"},
-{"idGroup":1, "groupName":"administrateurs", "groupChief":"null", "privilege":"admin", "isDeleted":false, "hasChief":false, "creationDate":"28/02/PM", "deleteDate":"null", "updateDate":"null"}
+{"groupes":[{"idGroup":2, "groupName":"developpeurs", "groupChief":"null", "privilege":"dev", "isDeleted":false, "hasChief":false, "creationDate":"28/02/PM", "deleteDate":"null", "updateDate":"null"}
 ]}

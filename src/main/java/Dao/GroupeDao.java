@@ -38,7 +38,18 @@ public class GroupeDao implements Idao<Groupe> {
 
     @Override
     public boolean delete(Groupe groupe) {
-        return false;
+        if (groupe != null) {
+            groupe.setDeleted(true);
+            List<Object> groupList = new ArrayList<>();
+            groupes = findAll();
+            //users.add(user);
+            groupes.remove(groupe); //if we decide to delete definitively
+            groupList.addAll(groupes);
+            InsertIntoJson(groupList, groupeFilePathName);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

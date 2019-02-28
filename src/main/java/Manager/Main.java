@@ -38,7 +38,7 @@ public class Main {
 
         GroupeDao groupeDao = new GroupeDao();
         Groupe groupe = new Groupe();
-        groupe.setIdGroup(0);
+        groupe.setIdGroup(1);
         groupe.setUpdateDate(null);
         groupe.setPrivilege("admin");
         groupe.setHasChief(false);
@@ -48,7 +48,7 @@ public class Main {
         groupe.setDeleted(false);
         groupe.setCreationDate(getDate(new Date()));
 
-        Groupe groupe1 = groupeDao.update(groupe);
+        boolean groupe1 = groupeDao.delete(groupe);
         System.out.println(groupe1);
 
         User user = userDao.create(userToCreate);
