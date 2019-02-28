@@ -104,8 +104,8 @@ public class MessageDao implements Idao<Message> {
 
     private void updateUserMessage(Message message){
         List<User> users = message.getMessageSentTo();
-        //users.add(message.getMessageSender());
         UserDao userDao = new UserDao();
+        userDao.update(message.getMessageSender());
         for (User user : users) {
             List<Message> messages = new ArrayList<>();
             messages.add(message);

@@ -148,11 +148,32 @@ public class FileManager {
 
     public static Message createMessageObject(JSONObject jsonObjectMessage){
         Message message = new Message();
+        List<User> users = new ArrayList<>();
+        List<Object> objects = new ArrayList<>();
+        JSONArray jsonArray = (JSONArray) jsonObjectMessage.get(MESSAGE_MSG_SENDERTO_FIELD);
+        for (Object obj : jsonArray) {
+            Object objectFormed = (Object) getFromJsonObject((JSONObject) obj, new User());
+            if (objectFormed != null) {
+                objects.add(objectFormed);
+            }
+        }
+        Iterator it = objects.iterator();
+        while (it.hasNext()) {
+            Object ob = it.next();
+            if (ob instanceof User) {
+                users.add((User) ob);
+            }
+        }
+        Object ob = jsonObjectMessage.get(MESSAGE_MSG_SENDER_FIELD);
+        User user = null;
+        if(ob instanceof  User){
+            user = (User) ob;
+        }
         message.setIdMessage((long) jsonObjectMessage.get(MESSAGE_ID_FIELD));
         message.setMessageText(getValueFromJsonObject(jsonObjectMessage, MESSAGE_MSG_TEXT_FIELD));
         message.setRead((Boolean) jsonObjectMessage.get(MESSAGE_MSG_ISREAD_FIELD));
-        message.setMessageSentTo((List<User>) jsonObjectMessage.get(MESSAGE_MSG_SENDERTO_FIELD));
-        message.setMessageSender((User) jsonObjectMessage.get(MESSAGE_MSG_SENDER_FIELD));
+        message.setMessageSentTo(users);
+        message.setMessageSender(user);
         message.setMessageobject(getValueFromJsonObject(jsonObjectMessage, MESSAGE_MSG_OBJECT_FIELD));
         message.setMessageDate(getValueFromJsonObject(jsonObjectMessage, MESSAGE_MSG_DATE_FIELD));
         message.setDeleteDate(getValueFromJsonObject(jsonObjectMessage, MESSAGE_DELETE_DATE_FIELD));
