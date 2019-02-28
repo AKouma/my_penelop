@@ -102,7 +102,6 @@ public class UserDao implements Idao<User> {
     @Override
     public User findById(Object id) {
         if (id instanceof String) {
-            List<Object> userList = new ArrayList<>();
             users = findAll();
             Iterator it = users.iterator();
             boolean isFoundAndUpdate = false;

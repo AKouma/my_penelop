@@ -98,6 +98,18 @@ public class GroupeDao implements Idao<Groupe> {
 
     @Override
     public Groupe findById(Object id) {
+        if (id instanceof Integer) {
+            groupes = findAll();
+            Iterator it = groupes.iterator();
+            boolean isFoundAndUpdate = false;
+            while (it.hasNext() && !isFoundAndUpdate) {
+                Groupe current = (Groupe) it.next();
+                isFoundAndUpdate = (Integer)id == current.getIdGroup();
+                if (isFoundAndUpdate) {
+                    return current;
+                }
+            }
+        }
         return null;
     }
 }

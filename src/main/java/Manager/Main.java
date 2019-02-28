@@ -20,13 +20,13 @@ public class Main {
         List<Message> messages = new ArrayList<>();
         UserDao userDao = new UserDao();
         User userToCreate = new User();
-        userToCreate.setMatricule("fqshfgvaaaatyufgf");
+        userToCreate.setMatricule("uezgfygure");
         userToCreate.setUserProfil("developpeur");
-        userToCreate.setUserpassword("passworddexter1111");
-        userToCreate.setUserName("BENONI");
+        userToCreate.setUserpassword("lili");
+        userToCreate.setUserName("LILIANE");
         userToCreate.setUserMail("elbacar08@gmail.com");
         userToCreate.setUserLogin("DEX");
-        userToCreate.setUserFirstname("DEXTER");
+        userToCreate.setUserFirstname("LILI");
         userToCreate.setUserContatcs(null);
         userToCreate.setUserBirth("16/02/1993");
         userToCreate.setUpdateDate(null);
@@ -48,7 +48,7 @@ public class Main {
         groupe.setDeleted(false);
         groupe.setCreationDate(getDate(new Date()));
 
-        boolean groupe1 = groupeDao.delete(groupe);
+        Groupe groupe1 = groupeDao.findById(2);
         System.out.println(groupe1);
 
         User user = userDao.create(userToCreate);
