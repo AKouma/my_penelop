@@ -43,7 +43,27 @@ public class GroupeDao implements Idao<Groupe> {
 
     @Override
     public Groupe update(Groupe groupe) {
-        return null;
+        if (groupe != null) {
+            List<Object> groupList = new ArrayList<>();
+            groupes = findAll();
+            Iterator it = groupes.iterator();
+            boolean isFoundAndUpdate = false;
+            while (it.hasNext() && !isFoundAndUpdate) {
+                Groupe current = (Groupe) it.next();
+                isFoundAndUpdate = current.equals(groupe);
+                if (isFoundAndUpdate) {
+                    it.remove();
+                }
+            }
+            if (isFoundAndUpdate) {
+                groupes.add(groupe);
+                groupList.addAll(groupes);
+                InsertIntoJson(groupList, groupeFilePathName);
+            } else {
+                groupe = null;
+            }
+        }
+        return groupe;
     }
 
     @Override

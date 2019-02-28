@@ -65,7 +65,6 @@ public class UserDao implements Idao<User> {
                 User current = (User) it.next();
                 isFoundAndUpdate = current.equals(user);
                 if (isFoundAndUpdate) {
-                    current = user;
                     it.remove();
                 }
             }
@@ -120,7 +119,7 @@ public class UserDao implements Idao<User> {
 
     private void updateContac(User user){
         ContactDao contactDao = new ContactDao();
-        if(!user.getUserContatcs().isEmpty()){
+        if(user.getUserContatcs() != null && !user.getUserContatcs().isEmpty()){
             for (Contact contact : user.getUserContatcs()) {
                 contactDao.create(contact);
             }

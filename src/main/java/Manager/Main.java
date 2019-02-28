@@ -38,7 +38,7 @@ public class Main {
 
         GroupeDao groupeDao = new GroupeDao();
         Groupe groupe = new Groupe();
-        groupe.setIdGroup(1);
+        groupe.setIdGroup(0);
         groupe.setUpdateDate(null);
         groupe.setPrivilege("admin");
         groupe.setHasChief(false);
@@ -48,11 +48,11 @@ public class Main {
         groupe.setDeleted(false);
         groupe.setCreationDate(getDate(new Date()));
 
-        Groupe groupe1 = groupeDao.create(groupe);
+        Groupe groupe1 = groupeDao.update(groupe);
         System.out.println(groupe1);
 
-        //User user = userDao.findById("");
-       // System.out.println(user);
+        User user = userDao.create(userToCreate);
+        System.out.println(user);
         //FileManager.InsertIntoJson(groupes, userFilePathName);
         //List<User> users = userDao.findAll();
         /*for (Object user :  users) {
